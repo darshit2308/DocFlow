@@ -14,12 +14,10 @@ The script uses randomized logic so commit times vary (the cron fires at a
 fixed UTC time but the actual content and message feel organic).
 """
 
-import json
 import os
 import random
-import sys
 import textwrap
-from datetime import date, datetime, timezone
+from datetime import date
 from pathlib import Path
 
 # ── Project start date (the day you first pushed) ──────────────────────────
@@ -592,7 +590,7 @@ def main():
     # We use the FIRST commit's message as the git commit message,
     # and pack all changes into it. This is intentional for authenticity.
     all_files = []
-    for msg, desc, files in commits:
+    for _msg, desc, files in commits:
         apply_file_changes(repo_root, files, day, desc)
         all_files.extend(files)
 

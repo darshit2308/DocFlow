@@ -1,5 +1,6 @@
 """Smoke test — healthz returns 200."""
 from fastapi.testclient import TestClient
+
 from app.main import app
 
 client = TestClient(app)
